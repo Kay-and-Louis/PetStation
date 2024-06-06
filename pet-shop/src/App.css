@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.navbar{
+    position: relative;
+    display:flex;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.903);
+}
+
+.navbar img{
+    width: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 25px 0;
+    margin-left: 20px;
+}
+
+.navbarOptions{
+    width: 90%;
+    margin: auto;
+    list-style-type: none;
+    display: flex;
+    font-size: 1.6rem;
+}
+
+.navbarOptions li{
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: grey;
+    color: white;
+    margin: 70px;
+    padding: 5px 0;
+    border-radius: 20px;
+}
+
+.navbarOptions li:hover{
+    background-color: rgba(128, 128, 128, 0.703);
+}
+
+.dropDownProfile{
+    position: absolute;
+    width:13rem;
+    top: 8rem;
+    left: 31rem;
+    border-radius: 10px;
+    border: solid grey;     
+    background-color: black;
+    color: white;
+    opacity: 0; 
+    transition: opacity .5s ease;    
+}
+
+.dropDownProfileShow{
+    opacity: 1;   
+}
+
+.dropDownProfile ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;    
+}
+
+.dropDownProfile li{
+    font-size: 1.5rem;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+.dropDownProfile li:hover{
+    background-color: gray;
+    transition: .3s;
+    
+}

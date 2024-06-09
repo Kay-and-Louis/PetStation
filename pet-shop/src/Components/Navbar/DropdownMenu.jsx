@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-export default function DropdownMenu({showDropDown}){  
+export default function DropdownMenu({showDropDown}){
 
     return(        
             <div className={`dropDownProfile ${showDropDown ? "dropDownProfileShow" : ""}`}>

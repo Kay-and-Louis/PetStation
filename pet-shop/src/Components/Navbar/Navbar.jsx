@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 
 export default function Navbar(){

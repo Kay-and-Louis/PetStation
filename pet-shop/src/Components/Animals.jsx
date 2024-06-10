@@ -14,15 +14,14 @@ export default function Animals(){
            .catch((err) => {
               console.log(err.message);
            });
-           // New endpoint for the total request
+           
      }, []);
   
 
     return (
         <div>
             {animals.length > 0 ? animals.map((animal) => (
-                <div className='animal-model'>
-                    <p>ID: {animal.id}</p>
+                <div key={animal.id} className='animal-model'>                    
                     <p>Type: {animal.type}</p>
                     <p>Price: £{animal.price}</p>
                     <p>Sex: {animal.sex}</p>

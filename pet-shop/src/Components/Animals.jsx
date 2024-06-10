@@ -20,11 +20,16 @@ export default function Animals(){
 
     return (
         <div>
-            {animals.length > 0 ? animals.map((animal) => {
-
-                return animal.id
-                // Animal component to display on the main page
-            }) 
+            {animals.length > 0 ? animals.map((animal) => (
+                <div className='animal-model'>
+                    <p>ID: {animal.id}</p>
+                    <p>Type: {animal.type}</p>
+                    <p>Price: £{animal.price}</p>
+                    <p>Sex: {animal.sex}</p>
+                    <p>Age: {animal.age_in_months}</p>
+                    <p>Health Score: {animal.health_score}</p>                         
+                </div>            
+            )) 
             
             : 'loading animals' }
         </div>

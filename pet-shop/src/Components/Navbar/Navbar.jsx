@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 
-export default function Navbar(){
+export default function Navbar({animals, setAnimals, originalAnimals}){
 
     const [showOptions, setShowOptions] = useState(false);
 
@@ -22,6 +22,9 @@ export default function Navbar(){
         </ul>
         {showOptions ? <DropdownMenu
             showDropDown ={showOptions}
+            animals = {animals}
+            setAnimals = {setAnimals}
+            originalAnimals = {originalAnimals}
         /> : ''}         
         </div>
     )

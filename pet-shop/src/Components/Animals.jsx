@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Animals(){
-
-    const [animals, setAnimals] = useState([]);
+export default function Animals({animals, setAnimals, originalAnimals, setOriginalAnimals}){  
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -10,19 +8,18 @@ export default function Animals(){
            .then((data) => {
               console.log(data);
               setAnimals(data.result);
+              setOriginalAnimals(data.result);
            })
            .catch((err) => {
               console.log(err.message);
-           });
-           // New endpoint for the total request
+           });      
      }, []);
-  
+    
 
     return (
         <div>
             {animals.length > 0 ? animals.map((animal) => (
-                <div className='animal-model'>
-                    <p>ID: {animal.id}</p>
+                <div className='animal-model' key={animal.id}>                    
                     <p>Type: {animal.type}</p>
                     <p>Price: £{animal.price}</p>
                     <p>Sex: {animal.sex}</p>

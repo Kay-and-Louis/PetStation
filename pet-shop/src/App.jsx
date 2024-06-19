@@ -8,6 +8,8 @@ export default function App(){
   const [animals, setAnimals] = useState([]) ;
   const [originalAnimals, setOriginalAnimals] = useState([]);
 
+  
+
   return (
     <div>
       <Navbar 

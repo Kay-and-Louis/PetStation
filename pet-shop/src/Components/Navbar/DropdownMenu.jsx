@@ -1,44 +1,28 @@
-export default function DropdownMenu({showDropDown, animals, setAnimals, orignalAnimals}){
+export default function DropdownMenu({showDropDown, setAnimals, originalAnimals}){
 
-    const filterDogs = () => {
-            const dogsOnly = animals.filter((animal) => {
-            return animal.type === 'dog';            
-        })
-        setAnimals(dogsOnly);
+    const allAnimals = () => {
+        setAnimals(originalAnimals);
     }
+        
 
-    const filterCats = () => {
-        const catsOnly = animals.filter((animal) => {
-            return animal.type === 'cat';
-        })
-        setAnimals(catsOnly);
-    }
-    const filterSmallAnimals = () => {
-        const smallAnimalsOnly = animals.filter((animal) => {
-            return animal.type === 'hamster';
-        })
-        setAnimals(smallAnimalsOnly);
-    }
-    const filterFish = () => {
-        const fishOnly = animals.filter((animal) => {
-            return animal.type === 'GoldFish' || animal.type === 'TropicalFish';
-        })
-        setAnimals(fishOnly);
-    }
-
-    /* 
-        function allAnimals(){
-            setAnimals(orignalAnimals)
-        }
-    */
+    const filterAnimals = (animalName) => {        
+       const filteredList = originalAnimals.filter((animal) => {
+            if (animalName === 'GoldFish || TropicalFish'){
+                return animal.type === 'GoldFish' || animal.type === 'TropicalFish';
+            } 
+                return animal.type === animalName;
+       })
+       setAnimals(filteredList);
+   }
 
     return(        
             <div className={`dropDownProfile ${showDropDown ? "dropDownProfileShow" : ""}`}>
                 <ul>
-                    <li onClick={filterDogs}>Dogs</li>
-                    <li onClick={filterCats}>Cats</li>
-                    <li onClick={filterSmallAnimals}>Small Animals</li>
-                    <li onClick={filterFish}>Fishes</li>
+                    <li onClick={() => filterAnimals('dog')}>Dogs</li>
+                    <li onClick={() => filterAnimals('cat')}>Cats</li>
+                    <li onClick={() => filterAnimals('hamster')}>Small Animals</li>
+                    <li onClick={() => filterAnimals('GoldFish || TropicalFish')}>Fishes</li>
+                    <li onClick={allAnimals}>All Animals</li>
                 </ul>
             </div>        
     )

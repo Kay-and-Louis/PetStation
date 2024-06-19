@@ -24,7 +24,7 @@ export default function Navbar({animals, setAnimals, originalAnimals}){
             showDropDown ={showOptions}
             animals = {animals}
             setAnimals = {setAnimals}
-            originalAnimals = {originalAnimals}
+            originalAnimals = {originalAnimals}            
         /> : ''}         
         </div>
     )

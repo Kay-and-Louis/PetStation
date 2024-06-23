@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Animals({animals, setAnimals, originalAnimals, setOriginalAnimals}){  
-
-    useEffect(() => {
-        fetch('http://localhost:8000/api/fetch')
-           .then((response) => response.json())
-           .then((data) => {
-              console.log(data);
-              setAnimals(data.result);
-              setOriginalAnimals(data.result);
-           })
-           .catch((err) => {
-              console.log(err.message);
-           });      
-     }, []);
+export default function Animals({animals}){
     
 
     return (

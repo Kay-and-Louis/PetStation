@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Animals from "./Components/Animals";
 import TotalPrice from './Components/TotalPrice';
@@ -8,7 +8,18 @@ export default function App(){
   const [animals, setAnimals] = useState([]) ;
   const [originalAnimals, setOriginalAnimals] = useState([]);
 
-  
+    useEffect(() => {
+        fetch('http://localhost:8000/api/fetch')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setAnimals(data.result);
+                setOriginalAnimals(data.result);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
   return (
     <div>
@@ -18,11 +29,8 @@ export default function App(){
         originalAnimals = {originalAnimals}
       />
       <TotalPrice />  
-      <Animals 
+      <Animals
         animals = {animals}
-        setAnimals = {setAnimals}
-        originalAnimals = {originalAnimals}
-        setOriginalAnimals = {setOriginalAnimals}
       />
     </div>
   )

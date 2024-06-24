@@ -76,3 +76,84 @@
     transition: .3s;
     
 }
+
+/* Edits for the Main page - animal layout etc */
+.animal-format{
+    display: grid;
+    gap: 3.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1rem;
+    margin: 0 10px;
+}
+
+.animal-model{
+    border: 1px solid grey;
+    text-align: center;
+    border-radius: 15px;
+    padding: 3rem 0;
+}
+
+.animal-image{
+    width: 90%;
+    height: 300px;
+    border-radius: 50px;
+    border: 1px solid #ddd;    
+    padding: 5px;  
+    object-fit: cover;
+}
+
+.animal-model span{
+    color: hsl(240, 100%, 70%);
+    text-align: left;
+}
+
+.healthScore{
+    padding-bottom: 1rem;
+}
+
+.price{
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(0, 0%, 90%);
+}
+
+.animal-format button{
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(151, 150, 150);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.animal-format button:active{
+    background-color: hsl(0, 0%, 39%);
+}
+
+.more-info{
+    margin-right: 0.5rem;
+}
+
+.more-info.selected{
+    background-color: orange;
+}
+
+/* Clicking more information */
+
+
+.info-box{
+    z-index: 50;
+}
+
+.info-content{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.animal-format.opacity{
+    opacity: 0.5; 
+}

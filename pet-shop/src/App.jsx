@@ -7,6 +7,7 @@ export default function App(){
 
   const [animals, setAnimals] = useState([]) ;
   const [originalAnimals, setOriginalAnimals] = useState([]);
+  const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -19,8 +20,8 @@ export default function App(){
             .catch((err) => {
                 console.log(err.message);
             });
-    }, []);
-
+    }, []);    
+    
   return (
     <div>
       <Navbar 
@@ -31,6 +32,8 @@ export default function App(){
       <TotalPrice />  
       <Animals
         animals = {animals}
+        moreAnimalInfo = {moreAnimalInfo}
+        setMoreAnimalInfo = {setMoreAnimalInfo}
       />
     </div>
   )

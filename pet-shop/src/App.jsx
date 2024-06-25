@@ -28,13 +28,13 @@ export default function App(){
         animals = {animals}
         setAnimals = {setAnimals}
         originalAnimals = {originalAnimals}
-      />
-      <TotalPrice />  
+      />      
       <Animals
         animals = {animals}
         moreAnimalInfo = {moreAnimalInfo}
         setMoreAnimalInfo = {setMoreAnimalInfo}
       />
+      <TotalPrice />  
     </div>
   )
 }

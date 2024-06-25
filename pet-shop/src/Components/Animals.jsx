@@ -21,18 +21,20 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo}){
                 </div>            
             )) 
             
-            : 'loading animals' }
+            : 'loading animals' }           
             
+        <div>
             {moreAnimalInfo && (
                 <div className='info-box'>
                     <div className='info-content'>
                         <h2>More Information</h2>
                         <p>{animals.find(animal => animal.id === moreAnimalInfo)?.description}</p>
-                        <button onClick={() => info(false)}>X</button>
+                        <button className='close-window' onClick={() => info(false)}>X</button>
                     </div>    
                 </div>
             )}
         </div>
+        </div>       
     )
 };
         

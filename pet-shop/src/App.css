@@ -4,86 +4,76 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.navbar{
-    position: relative;
-    display:flex;
-    user-select: none;
-    background-color: rgba(0, 0, 0, 0.903);
+/* Navbar set-up*/
+.title{
+    display: flex;
+    font-size: 5rem;
+    justify-content: center;    
+    align-items: center;
+    padding: .5rem;
+    gap: .5rem;    
 }
 
-.navbar img{
+.title img{
     width: 10rem;
     object-fit: cover;
-    border-radius: 50%;
-    padding: 25px 0;
-    margin-left: 20px;
+    border-radius: 50%;    
+  }
+
+.navbar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.903);
+    color: white;        
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
 }
 
 .navbarOptions{
-    width: 90%;
-    margin: auto;
-    list-style-type: none;
+    max-width: 90%;    
     display: flex;
-    font-size: 1.6rem;
-}
-
-.navbarOptions li{
-    flex: 1;
+    gap: 10rem;
+    padding-left: 2rem;    
     text-align: center;
-    cursor: pointer;
+}
+
+.navbarOptions div{
     background-color: grey;
-    color: white;
-    margin: 70px;
-    padding: 5px 0;
-    border-radius: 20px;
-}
-
-.navbarOptions li:hover{
-    background-color: rgba(128, 128, 128, 0.703);
-}
-
-.dropDownProfile{
-    position: absolute;
-    width:13rem;
-    top: 8rem;
-    left: 31rem;
-    border-radius: 10px;
-    border: solid grey;     
-    background-color: black;
-    color: white;
-    opacity: 0; 
-    transition: opacity .5s ease;    
-}
-
-.dropDownProfileShow{
-    opacity: 1;   
-}
-
-.dropDownProfile ul{
-    list-style-type: none;
-    padding: 0;
-    text-align: center;    
-}
-
-.dropDownProfile li{
-    font-size: 1.5rem;
-    padding: 12px 0;
+    padding: 0.2rem 2rem; 
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.dropDownProfile li:hover{
-    background-color: gray;
-    transition: .3s;
-    
+.animals-button{
+    position: relative;
+}
+
+.animals-dropdown{
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+    left: 0rem;    
+}
+
+.animals-dropdown div{
+    padding: .5rem 0;
+    border-bottom: 1px solid rgba(221, 221, 221, 0.3);
+}
+
+.animals-dropdown div:hover{
+    background-color: rgb(101, 100, 100);
 }
 
 /* Edits for the Main page - animal layout etc */
 .animal-format{
-    display: grid;
+    display: grid;        
     gap: 3.5rem;
     grid-template-columns: repeat(4, 1fr);
     font-size: 1rem;
     margin: 0 10px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-top: 1rem;
 }
 
 .animal-model{
@@ -141,19 +131,46 @@
 }
 
 /* Clicking more information */
-
+.animal-format.opacity{
+    background-color: rgba(140, 135, 135, 0.7);    
+    pointer-events: none;
+}
 
 .info-box{
-    z-index: 50;
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    right: 25%;
+    opacity: 1;
+    min-width: 50%;
+    background-color: white;
+    font-size: 1.5rem;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+    display: fixed;
+    pointer-events: auto;
 }
 
 .info-content{
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.animal-format.opacity{
-    opacity: 0.5; 
+.info-content p{
+    padding-top: 0.5rem;
 }
+
+.close-window{
+    position: absolute;
+    top: -25px;
+    right: 10px;
+    font-size: 1.5rem;       
+    padding: 0.5rem 1rem;    
+    border-radius: 5px;    
+    cursor: pointer;
+    
+
+}
+
+
+

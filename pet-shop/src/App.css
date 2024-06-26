@@ -66,6 +66,37 @@
 }
 
 /* Edits for the Main page - animal layout etc */
+.pageLayout{
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.totalPrice{
+    padding: 0 0.1rem; 
+}
+
+.totalPrice h3{
+    padding: 0 0 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.totalPrice p{
+    padding: 0.5rem 0 0.5rem 0;
+    color: red;
+    font-size: 1.2rem;
+}
+
+.totalPrice button{
+    font-size: 1rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(78, 153, 233);
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+
 .animal-format{
     display: grid;        
     gap: 3.5rem;

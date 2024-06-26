@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Navbar({setAnimals, originalAnimals}){
+export default function Navbar({setAnimals, originalAnimals, setPage}){
 
     const [showOptions, setShowOptions] = useState(false);
 
@@ -14,12 +14,24 @@ export default function Navbar({setAnimals, originalAnimals}){
                 return animal.type === 'GoldFish' || animal.type === 'TropicalFish';
             } 
                 return animal.type === animalName;
-       })
+       });
        setAnimals(filteredList);
-    }
+       setPage(0);
+    };
 
     const allAnimals = () => {
         setAnimals(originalAnimals);
+    }
+
+    const pageSelect = (page) => {
+        if (page === 0){
+            setPage(0);
+            setAnimals(originalAnimals);
+        } else if (page === 1) {
+            setPage(1);
+        } else {
+            setPage(2);            
+        }
     }
 
     return(
@@ -31,7 +43,7 @@ export default function Navbar({setAnimals, originalAnimals}){
             </div>
             <div className="navbar"> 
                 <div className="navbarOptions">
-                    <div>Home</div>
+                    <div onClick={() => pageSelect(0)}>Home</div>
                     <div className='animals-button' onClick={toggleOptions}>
                         Our Animals               
                         {showOptions && (                         
@@ -45,8 +57,8 @@ export default function Navbar({setAnimals, originalAnimals}){
                             )} 
                         
                     </div>
-                    <div>About Us</div>
-                    <div>Contact Us</div>       
+                    <div onClick={() => pageSelect(1)}>About Us</div>
+                    <div onClick={() => pageSelect(2)}>Contact Us</div>       
                 </div>             
             </div>
         </div>

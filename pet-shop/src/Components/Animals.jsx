@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo}){
+export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
 
     function info(id){
         setMoreAnimalInfo(id);

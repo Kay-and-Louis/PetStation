@@ -2,12 +2,15 @@ import React, {useEffect, useState} from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Animals from "./Components/Animals";
 import TotalPrice from './Components/TotalPrice';
+import AboutUs from "./Components/AboutUs";
+import ContactUs from "./Components/ContactUs";
 
 export default function App(){
 
   const [animals, setAnimals] = useState([]) ;
   const [originalAnimals, setOriginalAnimals] = useState([]);
   const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
+  const [page, setPage] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -24,17 +27,34 @@ export default function App(){
     
   return (
     <div>
-      <Navbar 
-        animals = {animals}
-        setAnimals = {setAnimals}
-        originalAnimals = {originalAnimals}
-      />      
-      <Animals
-        animals = {animals}
-        moreAnimalInfo = {moreAnimalInfo}
-        setMoreAnimalInfo = {setMoreAnimalInfo}
-      />
-      <TotalPrice />  
+      {page === 0 ? (
+        <div>
+          <Navbar 
+            animals = {animals}
+            setAnimals = {setAnimals}
+            originalAnimals = {originalAnimals}
+            page ={page}
+            setPage = {setPage}
+          />      
+          <Animals
+            animals = {animals}
+            moreAnimalInfo = {moreAnimalInfo}
+            setMoreAnimalInfo = {setMoreAnimalInfo}
+          />
+          <TotalPrice />  
+        </div>) : 
+      page === 1 ? (
+        <div> 
+          <AboutUs
+            setPage={setPage}
+          /> 
+        </div>) : 
+      page === 2 ? (
+        <div>
+           <ContactUs
+            setPage={setPage}
+          /> 
+        </div>) : ''}      
     </div>
   )
 }

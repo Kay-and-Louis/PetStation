@@ -167,10 +167,71 @@
     font-size: 1.5rem;       
     padding: 0.5rem 1rem;    
     border-radius: 5px;    
-    cursor: pointer;
-    
-
+    cursor: pointer;   
 }
+/* About us & Contact us page */
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    background: linear-gradient(to bottom right, green, grey);
+    gap: 2rem;
+    font-size: 6rem;
+    font-weight: bold;
+}
+.section img{
+    width: 25%;
+    height: 25rem;
+    border-radius: 50px;
+}
+
+.about-text{
+    width: 100%;
+    padding: 2rem 5rem 5rem 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.about-text p{
+    padding-top: 1.5rem;
+}
+
+.contact-text{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: 3rem 0 10rem 0;
+    width: 70%;
+    margin: auto;
+}
+
+.details{
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+}
+
+.details img{
+    width: 5%;
+}
+
+.opening-hours{
+    background-color: rgb(223, 70, 15);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.location{
+    display: flex;
+    padding-top: 2rem;
+    gap: 1rem;
+}
+
+.location-img{
+    width: 8%;
+}
+
 
 
 

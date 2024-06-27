@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
    
     const [prices, setPrices] = useState([0]);
+    const [qty, setQty] = useState([0]);
 
     function info(id){
         setMoreAnimalInfo(id);
@@ -12,10 +13,24 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
         setPrices([...prices, price]);
     }
 
+    const removeFromCart = (price) =>{
+        const index = prices.indexOf(price);
+        if(index > -1){
+            const updatedArray = [...prices];
+            updatedArray.splice(index, 1);
+            return setPrices(updatedArray);
+        }        
+    }
+    
     const totalPrice = () => {
         return prices.reduce((acc, total) => {
             return acc + total}, 0)
     };
+
+   const quantity = (price) => {
+        const amount = prices.filter((element) => element === price).length;
+        return amount;
+   }
 
     
       
@@ -31,7 +46,9 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
                         <p className='healthScore'><span>Health Score: </span>{animal.health_score}</p>  
                         <p className='price'>£{animal.price}</p> 
                         <button className={`more-info ${moreAnimalInfo === animal.id ? 'selected' : ''}`} onClick={() => info(animal.id)}>More Info</button>                   
-                        <button className='cart' onClick={() => addToCart(animal.price)}>Add to Cart</button>   
+                        <button className='cart' onClick={() => addToCart(animal.price)}>Add to Cart</button>
+                        <button onClick={() => removeFromCart(animal.price)}>Remove from Cart</button> 
+                        <div className='qty'>Qty: {quantity(animal.price)}</div>  
                     </div>            
                 )) 
                 

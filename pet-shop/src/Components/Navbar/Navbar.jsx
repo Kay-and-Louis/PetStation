@@ -43,7 +43,7 @@ export default function Navbar({setAnimals, originalAnimals, setPage}){
             </div>
             <div className="navbar"> 
                 <div className="navbarOptions">
-                    <div onClick={() => pageSelect(0)}>Home</div>
+                    <div className="mainBtn" onClick={() => pageSelect(0)}>Home</div>
                     <div className='animals-button' onClick={toggleOptions}>
                         Our Animals               
                         {showOptions && (                         
@@ -57,8 +57,8 @@ export default function Navbar({setAnimals, originalAnimals, setPage}){
                             )} 
                         
                     </div>
-                    <div onClick={() => pageSelect(1)}>About Us</div>
-                    <div onClick={() => pageSelect(2)}>Contact Us</div>       
+                    <div className="mainBtn" onClick={() => pageSelect(1)}>About Us</div>
+                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div>       
                 </div>             
             </div>
         </div>

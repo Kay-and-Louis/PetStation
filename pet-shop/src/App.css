@@ -31,11 +31,12 @@
 }
 
 .navbarOptions{
-    max-width: 90%;    
+    width: 90%;    
     display: flex;
     gap: 10rem;
     padding-left: 2rem;    
     text-align: center;
+    justify-content: center;
 }
 
 .navbarOptions div{
@@ -43,6 +44,10 @@
     padding: 0.2rem 2rem; 
     border-radius: 5px;
     cursor: pointer;
+}
+
+.navbarOptions .mainBtn:hover, .animals-button:hover{
+    background-color: hsl(0, 0%, 30%);
 }
 
 .animals-button{
@@ -105,6 +110,7 @@
     margin: 0 10px;
     background-color: rgba(0, 0, 0, 0);
     padding-top: 1rem;
+    width: 100%;
 }
 
 .animal-model{
@@ -161,6 +167,10 @@
     background-color: orange;
 }
 
+.qty{
+    padding-top: 1rem;
+}
+
 /* Clicking more information */
 .animal-format.opacity{
     background-color: rgba(140, 135, 135, 0.7);    
@@ -212,14 +222,12 @@
     font-weight: bold;
 }
 .section img{
-    width: 25%;
-    height: 25rem;
-    border-radius: 50px;
+    width: 20%; 
 }
 
 .about-text{
     width: 100%;
-    padding: 2rem 5rem 5rem 2rem;
+    padding: 2rem 5rem 5rem 5rem;
     text-align: center;
     font-size: 1rem;
 }
@@ -247,6 +255,11 @@
     width: 5%;
 }
 
+.letter{
+    height: 2%;
+    padding-top: .5rem;
+}
+
 .opening-hours{
     background-color: rgb(223, 70, 15);
     color: white;
@@ -263,6 +276,148 @@
     width: 8%;
 }
 
+@media (max-width: 576px) {     
+    /* Navbar set-up*/
+    .title{     
+        font-size: 4rem;
+    }  
 
+    .navbar{             
+        font-size: 1rem;        
+    }
+    
+    .navbarOptions{
+        gap: 0.5rem;       
+        margin-left: -1.7rem;
+    }
+    
+    .navbarOptions div{      
+        padding: 0.2rem 1rem; 
+    }
+    
+    /* Edits for the Main page - animal layout etc */
+    .animal-format{
+       grid-template-columns: repeat(1, 1fr);
+    }
+    
+    /* Clicking more information */ 
+    .info-box{        
+        left: 15%;
+        width: 50%;
+        font-size: 1.1rem;        
+    }   
+    
+    .close-window{
+        right: -10px;
+        font-size: 1rem;               
+    }
 
+    /* About us & Contact us page */
+    .section{
+        padding: 1rem 0;        
+        font-size: 3rem;
+    }
+    
+    .contact-text{        
+        flex-direction: column;        
+    }   
+     
+    .details img{
+        width: 6%;
+        height: 0%;
+        padding-top: 0.5rem;
+    }
 
+    .letter{
+        height: 2%;
+        padding-top: .5rem;
+    }
+    
+    .opening-hours{
+        margin-top: 2rem;
+    }
+    
+    .opening-hours p{
+       font-size: 1.1rem;
+    }   
+    
+    .location-img{
+        height: 2%;        
+    }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+    /* Navbar set-up*/
+.navbarOptions{    
+    gap: 1rem;
+    padding-left: 1rem;        
+}
+
+.navbarOptions div{
+    padding: 0.2rem 0.5rem;     
+}
+
+/* Edits for the Main page - animal layout etc */
+.animal-format{
+    grid-template-columns: repeat(1, 1fr);    
+}
+
+/* Clicking more information */
+.info-box{        
+    left: 9%;
+    width: 65%;
+    font-size: 1.1rem;        
+}   
+
+.close-window{
+    right: -10px;
+    font-size: 1rem;               
+}
+
+/* About us & Contact us page */
+.section{
+    font-size: 5rem;
+}
+
+.contact-text{
+    flex-direction: column;
+}
+
+.opening-hours{
+    margin-top: 2rem;
+}
+
+.location-img{
+    height: 2%;
+}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+/* Navbar set-up*/    
+.navbarOptions{
+    gap: 2rem;
+}
+
+/* Edits for the Main page - animal layout etc */
+.animal-format{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Clicking more information */
+.info-box{
+    left: 7%;
+}
+
+/* About us & Contact us page */
+.contact-text{
+    flex-direction: column;
+}
+
+.opening-hours{
+    margin-top: 2rem;
+}
+
+.location-img{
+    width: 5%;    
+}
+}

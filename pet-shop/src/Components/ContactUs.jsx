@@ -24,7 +24,7 @@ export default function ContactUs({animals, setAnimals, originalAnimals, page, s
                             <div>012345678912</div>
                         </div>
                         <div className="details">
-                            <img src="https://cdn.pixabay.com/photo/2013/07/12/13/55/letter-147563_1280.png" alt="email" />
+                            <img className="letter" src="https://cdn.pixabay.com/photo/2013/07/12/13/55/letter-147563_1280.png" alt="email" />
                             <div>pets@petstation.co.uk</div>
                         </div>
                     </div>

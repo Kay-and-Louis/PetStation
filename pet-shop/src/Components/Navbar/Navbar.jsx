@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Checkout from "../Checkout";
 
 export default function Navbar({setAnimals, originalAnimals, setPage}){
 
@@ -29,9 +30,11 @@ export default function Navbar({setAnimals, originalAnimals, setPage}){
             setAnimals(originalAnimals);
         } else if (page === 1) {
             setPage(1);
-        } else {
+        } else if (page === 2) {
             setPage(2);            
-        }
+        } else {
+            setPage(3);
+        };
     }
 
     return(
@@ -58,7 +61,8 @@ export default function Navbar({setAnimals, originalAnimals, setPage}){
                         
                     </div>
                     <div className="mainBtn" onClick={() => pageSelect(1)}>About Us</div>
-                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div>       
+                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div> 
+                    <img onClick={() => pageSelect(3)} src="https://cdn.pixabay.com/photo/2014/03/25/16/58/shopping-cart-297750_1280.png" alt="shopping cart" />      
                 </div>             
             </div>
         </div>

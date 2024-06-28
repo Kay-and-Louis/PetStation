@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
-   
-    const [prices, setPrices] = useState([0]);
-    const [qty, setQty] = useState([0]);
-
+export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices}){
+      
     function info(id){
         setMoreAnimalInfo(id);
     }
@@ -24,15 +21,13 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
     
     const totalPrice = () => {
         return prices.reduce((acc, total) => {
-            return acc + total}, 0)
+            return acc + total}, 0);           
     };
 
    const quantity = (price) => {
         const amount = prices.filter((element) => element === price).length;
         return amount;
    }
-
-    
       
     return (
         <div className='pageLayout'>
@@ -70,8 +65,7 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo,}){
             </div>
             <div className='totalPrice'>
                 <h3>Subtotal</h3>
-                <p>£{totalPrice()}.00</p>
-                <button>Checkout</button>
+                <p>£{totalPrice()}.00</p>                
             </div> 
         </div>      
     )

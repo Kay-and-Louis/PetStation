@@ -33,7 +33,7 @@
 .navbarOptions{
     width: 90%;    
     display: flex;
-    gap: 10rem;
+    gap: 3rem;
     padding-left: 2rem;    
     text-align: center;
     justify-content: center;
@@ -43,6 +43,12 @@
     background-color: grey;
     padding: 0.2rem 2rem; 
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbarOptions img{
+    width: 2.5%;
+    height: 2rem;    
     cursor: pointer;
 }
 
@@ -210,7 +216,7 @@
     border-radius: 5px;    
     cursor: pointer;   
 }
-/* About us & Contact us page */
+/* About us, Contact us & checkout page */
 .section{
     display: flex;
     justify-content: center;
@@ -276,6 +282,23 @@
     width: 8%;
 }
 
+.checkout-layout{
+    font-size: 2rem;
+    padding: 2rem 0 2rem 2rem;
+}
+
+.checkout-layout div{
+    padding-bottom: 1rem;
+}
+
+.checkout-layout img{     
+    padding-top: 4rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 @media (max-width: 576px) {     
     /* Navbar set-up*/
     .title{     
@@ -293,6 +316,13 @@
     
     .navbarOptions div{      
         padding: 0.2rem 1rem; 
+    }
+
+    .navbarOptions img{
+        width: 8%;
+        height: 2rem;    
+        cursor: pointer;
+        margin-top: 0.5rem;
     }
     
     /* Edits for the Main page - animal layout etc */
@@ -346,8 +376,61 @@
     }
 }
 
-@media (min-width: 577px) and (max-width: 991px) {
+@media (min-width: 577px) and (max-width: 768px) {
     /* Navbar set-up*/
+.navbarOptions{    
+    gap: 0.5rem;
+    padding-left: 1rem;        
+}
+
+.navbarOptions div{
+    padding: 0.2rem 0.5rem;     
+}
+
+.navbarOptions img{
+    width: 5%;
+    height: 2rem;    
+    cursor: pointer;
+    margin-top: 0rem;
+}
+
+/* Edits for the Main page - animal layout etc */
+.animal-format{
+    grid-template-columns: repeat(1, 1fr);    
+}
+
+/* Clicking more information */
+.info-box{        
+    left: 9%;
+    width: 65%;
+    font-size: 1.1rem;        
+}   
+
+.close-window{
+    right: -10px;
+    font-size: 1rem;               
+}
+
+/* About us & Contact us page */
+.section{
+    font-size: 5rem;
+}
+
+.contact-text{
+    flex-direction: column;
+}
+
+.opening-hours{
+    margin-top: 2rem;
+}
+
+.location-img{
+    height: 2%;
+}
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+        /* Navbar set-up*/
 .navbarOptions{    
     gap: 1rem;
     padding-left: 1rem;        
@@ -355,6 +438,13 @@
 
 .navbarOptions div{
     padding: 0.2rem 0.5rem;     
+}
+
+.navbarOptions img{
+    width: 5%;
+    height: 2rem;    
+    cursor: pointer;
+    margin-top: 0rem;
 }
 
 /* Edits for the Main page - animal layout etc */
@@ -395,7 +485,14 @@
 @media (min-width: 992px) and (max-width: 1199px) {
 /* Navbar set-up*/    
 .navbarOptions{
-    gap: 2rem;
+    gap: 1rem;
+}
+
+.navbarOptions img{
+    width: 3%;
+    height: 2rem;    
+    cursor: pointer;
+    margin-top: 0rem;
 }
 
 /* Edits for the Main page - animal layout etc */

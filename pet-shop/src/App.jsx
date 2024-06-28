@@ -4,6 +4,7 @@ import Animals from "./Components/Animals";
 import TotalPrice from './Components/TotalPrice';
 import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
+import Checkout from "./Components/Checkout";
 
 export default function App(){
 
@@ -11,6 +12,7 @@ export default function App(){
   const [originalAnimals, setOriginalAnimals] = useState([]);
   const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
   const [page, setPage] = useState(0);
+  const [prices, setPrices] = useState([0]);  
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -40,6 +42,9 @@ export default function App(){
             animals = {animals}
             moreAnimalInfo = {moreAnimalInfo}
             setMoreAnimalInfo = {setMoreAnimalInfo}
+            setPage={setPage}
+            prices={prices}
+            setPrices={setPrices}
           />
           <TotalPrice />  
         </div>) : 
@@ -54,7 +59,15 @@ export default function App(){
            <ContactUs
             setPage={setPage}
           /> 
-        </div>) : ''}      
+        </div>) : 
+      page === 3 ? (
+        <div>
+          <Checkout
+            setPage={setPage}
+            prices={prices}            
+          />
+        </div>
+      ) : ''}      
     </div>
   )
 }

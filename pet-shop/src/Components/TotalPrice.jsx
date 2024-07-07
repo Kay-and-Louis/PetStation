@@ -9,7 +9,7 @@ export default function TotalPrice(){
            .then((response) => response.json())
            .then((data) => {
               console.log(data);
-              setPrice(data.total);
+              setPrice(data.total.totalPrice);
            })
            .catch((err) => {
               console.log(err.message);

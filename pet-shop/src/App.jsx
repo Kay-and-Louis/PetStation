@@ -13,6 +13,7 @@ export default function App(){
   const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
   const [page, setPage] = useState(0);
   const [prices, setPrices] = useState([0]);  
+  const [removeBtn, setRemoveBtn] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -45,6 +46,8 @@ export default function App(){
             setPage={setPage}
             prices={prices}
             setPrices={setPrices}
+            removeBtn={removeBtn}
+            setRemoveBtn={setRemoveBtn}
           />
           <TotalPrice />  
         </div>) : 

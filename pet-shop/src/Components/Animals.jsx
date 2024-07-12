@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 
-export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices,}){
+export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices,qtyFreeze, setQtyFreeze, cartState, setCartState}){
     
-    const [cartState, setCartState]=useState({});
-    const [qtyFreeze, setQtyFreeze] = useState(false);
-
     function info(id){
         setMoreAnimalInfo(id);
     }

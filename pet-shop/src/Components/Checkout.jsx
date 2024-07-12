@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarOtherPages from "./Navbar/NavbarOtherPages";
 
-export default function Checkout({setAnimals, setPage, prices}){
+export default function Checkout({animals, setAnimals, setPage, prices, cartState}){
 
     const totalPrice = () => {
         return prices.reduce((acc, total) => {

@@ -17,7 +17,7 @@ export default function Checkout({animals, cartState, prices}){
                     <div>
                         Items in cart:
                         {Object.keys(cartState).map((animalId) => {
-                            return <AnimalSummary animalId={animalId} animals={animals} quantity={cartState[animalId]}></AnimalSummary>
+                            return <AnimalSummary key={animalId} animalId={animalId} animals={animals} quantity={cartState[animalId]}></AnimalSummary>
                         })}
                     </div>
                     :

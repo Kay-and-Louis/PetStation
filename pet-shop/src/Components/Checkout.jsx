@@ -1,8 +1,7 @@
 import React from "react";
-import NavbarOtherPages from "./Navbar/NavbarOtherPages";
 import AnimalSummary from "./AnimalSummary.jsx";
 
-export default function Checkout({animals, setAnimals, setPage, prices, cartState}){
+export default function Checkout({animals, cartState, prices}){
 
     const totalPrice = () => {
         return prices.reduce((acc, total) => {
@@ -11,11 +10,6 @@ export default function Checkout({animals, setAnimals, setPage, prices, cartStat
 
     return (
         <>
-            <NavbarOtherPages
-                setPage = {setPage}
-                setAnimals = {setAnimals}
-            />
-
             <div className="checkout-layout">
                 <div>SUBTOTAL</div>
                 <div>£{totalPrice()}</div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices,qtyFreeze, setQtyFreeze, cartState, setCartState}){
     

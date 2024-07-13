@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Checkout from "../Checkout";
 
-export default function Navbar({setAnimals, originalAnimals, setPage}){
+export default function Navbar({setAnimals, originalAnimals, page, setPage}){
 
     const [showOptions, setShowOptions] = useState(false);
 
@@ -47,23 +46,29 @@ export default function Navbar({setAnimals, originalAnimals, setPage}){
             <div className="navbar"> 
                 <div className="navbarOptions">
                     <div className="mainBtn" onClick={() => pageSelect(0)}>Home</div>
-                    <div className='animals-button' onClick={toggleOptions}>
-                        Our Animals               
-                        {showOptions && (                         
-                            <div className="animals-dropdown">
-                                <div onClick={() => filterAnimals('dog')}>Dogs</div>
-                                <div onClick={() => filterAnimals('cat')}>Cats</div>
-                                <div onClick={() => filterAnimals('hamster')}>Small Animals</div>
-                                <div onClick={() => filterAnimals('GoldFish || TropicalFish')}>Fishes</div>
-                                <div onClick={allAnimals}>All Animals</div>
-                            </div>
-                            )} 
-                        
-                    </div>
+                    {page === 0 ?
+                        <div className='animals-button' onClick={toggleOptions}>
+                            Our Animals
+                            {showOptions && (
+                                <div className="animals-dropdown">
+                                    <div onClick={() => filterAnimals('dog')}>Dogs</div>
+                                    <div onClick={() => filterAnimals('cat')}>Cats</div>
+                                    <div onClick={() => filterAnimals('hamster')}>Small Animals</div>
+                                    <div onClick={() => filterAnimals('GoldFish || TropicalFish')}>Fishes</div>
+                                    <div onClick={allAnimals}>All Animals</div>
+                                </div>
+                            )}
+
+                        </div>
+                        :
+                        ''
+                    }
                     <div className="mainBtn" onClick={() => pageSelect(1)}>About Us</div>
-                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div> 
-                    <img onClick={() => pageSelect(3)} src="https://cdn.pixabay.com/photo/2014/03/25/16/58/shopping-cart-297750_1280.png" alt="shopping cart" />      
-                </div>             
+                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div>
+                    <img onClick={() => pageSelect(3)}
+                         src="https://cdn.pixabay.com/photo/2014/03/25/16/58/shopping-cart-297750_1280.png"
+                         alt="shopping cart"/>
+                </div>
             </div>
         </div>
     )

@@ -1,16 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar/Navbar";
 
-export default function ContactUs({animals, setAnimals, originalAnimals, page, setPage}){
+export default function ContactUs(){
     return (
         <div>
-            <Navbar
-                animals = {animals}
-                setAnimals = {setAnimals}
-                originalAnimals = {originalAnimals}
-                page ={page}
-                setPage = {setPage}
-            />  
+
             <div>
                 <div className="section">
                     <div>Contact Us</div>

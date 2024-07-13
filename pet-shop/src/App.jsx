@@ -12,7 +12,7 @@ export default function App(){
   const [originalAnimals, setOriginalAnimals] = useState([]);
   const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
   const [page, setPage] = useState(0);
-  const [prices, setPrices] = useState([0]);  
+  const [prices, setPrices] = useState([]);
   const [removeBtn, setRemoveBtn] = useState(false);
   const [cartState, setCartState]=useState({});
   const [qtyFreeze, setQtyFreeze] = useState(false);

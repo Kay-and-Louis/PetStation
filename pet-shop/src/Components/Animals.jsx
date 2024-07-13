@@ -1,23 +1,21 @@
 import React from 'react';
 
-export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices,qtyFreeze, setQtyFreeze, cartState, setCartState}){
+export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices, cartState, setCartState}){
     
     function info(id){
         setMoreAnimalInfo(id);
     }
 
-    const addToCart = (price, id) => {        
+    const addToCart = (price, id) => {
+        if ((cartState[id] ?? 0) > 2) {
+            return;
+        }
+
         setCartState(prevState => {
             const currentQty = prevState[id] || 0;
-
-            if (currentQty < 3){
-                let updatedQty = currentQty + 1;
-                setPrices([...prices, price]);
-                return {...prevState, [id]: updatedQty};
-            } else {
-                setQtyFreeze(prevFreeze => ({...prevFreeze, [id]: true})); 
-                return prevState;
-            }
+            let updatedQty = currentQty + 1;
+            setPrices([...prices, price]);
+            return {...prevState, [id]: updatedQty};
         });
     };
 
@@ -34,8 +32,7 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, pri
                 newState[id] -= 1;
             } else {
                 delete newState[id]; 
-            };
-            setQtyFreeze(prevFreeze => ({...prevFreeze, [id]: false}));
+            }
             return newState;
         });
     }
@@ -58,7 +55,7 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, pri
                         <p className='healthScore'><span>Health Score: </span>{animal.health_score}</p>  
                         <p className='price'>£{animal.price}</p> 
                         <button className={`more-info ${moreAnimalInfo === animal.id ? 'selected' : ''}`} onClick={() => info(animal.id)}>More Info</button>                   
-                        <button className={`cart ${qtyFreeze[animal.id] ? 'freeze' : ''}`} onClick={() => addToCart(animal.price, animal.id)} disabled={qtyFreeze[animal.id]}>Add to Cart</button>
+                        <button className={`cart ${(cartState[animal.id] ?? 0) > 2 ? 'freeze' : ''}`} onClick={() => addToCart(animal.price, animal.id)} disabled={(cartState[animal.id] ?? 0) > 2}>Add to Cart</button>
                         {
                             cartState[animal.id] ? (<button onClick={() => removeFromCart(animal.price, animal.id)}>Remove from Cart</button>) : ''
                         }

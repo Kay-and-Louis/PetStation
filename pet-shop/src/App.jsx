@@ -29,15 +29,16 @@ export default function App(){
     
   return (
     <div>
-      {page === 0 ? (
-        <div>
-          <Navbar 
+        <Navbar
             animals = {animals}
             setAnimals = {setAnimals}
             originalAnimals = {originalAnimals}
             page ={page}
             setPage = {setPage}
-          />      
+        />
+        {page === 0 ? (
+        <div>
+
           <Animals
             animals = {animals}
             moreAnimalInfo = {moreAnimalInfo}

@@ -151,6 +151,10 @@
     border-top: 1px solid hsl(0, 0%, 90%);
 }
 
+.cart.freeze{
+    opacity: .5;
+}
+
 .animal-format button{
     padding: 0.5rem 1rem;
     margin-top: 1rem;
@@ -161,7 +165,7 @@
     font-size: 1rem;
 }
 
-.animal-format button:active{
+.animal-format button:not(.freeze):active {
     background-color: hsl(0, 0%, 39%);
 }
 

@@ -12,7 +12,10 @@ export default function App(){
   const [originalAnimals, setOriginalAnimals] = useState([]);
   const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
   const [page, setPage] = useState(0);
-  const [prices, setPrices] = useState([0]);  
+  const [prices, setPrices] = useState([]);
+  const [removeBtn, setRemoveBtn] = useState(false);
+  const [cartState, setCartState]=useState({});
+  const [qtyFreeze, setQtyFreeze] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/fetch')
@@ -46,6 +49,12 @@ export default function App(){
             setPage={setPage}
             prices={prices}
             setPrices={setPrices}
+            removeBtn={removeBtn}
+            setRemoveBtn={setRemoveBtn}
+            cartState={cartState}
+            setCartState={setCartState}
+            qtyFreeze={qtyFreeze}
+            setQtyFreeze={setQtyFreeze}
           />
           <TotalPrice />  
         </div>) : 
@@ -65,7 +74,9 @@ export default function App(){
         <div>
           <Checkout
             setPage={setPage}
-            prices={prices}            
+            prices={prices}
+            cartState={cartState}     
+            animals={animals}       
           />
         </div>
       ) : ''}      

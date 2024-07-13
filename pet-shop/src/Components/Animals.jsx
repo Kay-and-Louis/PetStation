@@ -1,33 +1,50 @@
 import React from 'react';
 
-export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices}){
-      
+export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, prices, setPrices,qtyFreeze, setQtyFreeze, cartState, setCartState}){
+    
     function info(id){
         setMoreAnimalInfo(id);
     }
 
-    const addToCart = (price) => {        
-        setPrices([...prices, price]);
-    }
+    const addToCart = (price, id) => {        
+        setCartState(prevState => {
+            const currentQty = prevState[id] || 0;
 
-    const removeFromCart = (price) =>{
+            if (currentQty < 3){
+                let updatedQty = currentQty + 1;
+                setPrices([...prices, price]);
+                return {...prevState, [id]: updatedQty};
+            } else {
+                setQtyFreeze(prevFreeze => ({...prevFreeze, [id]: true})); 
+                return prevState;
+            }
+        });
+    };
+
+    const removeFromCart = (price, id) =>{
         const index = prices.indexOf(price);
         if(index > -1){
             const updatedArray = [...prices];
             updatedArray.splice(index, 1);
-            return setPrices(updatedArray);
-        }        
+            setPrices(updatedArray);
+        
+            setCartState(prevState => {
+            const newState = {...prevState};
+            if(newState[id] > 1){
+                newState[id] -= 1;
+            } else {
+                delete newState[id]; 
+            };
+            setQtyFreeze(prevFreeze => ({...prevFreeze, [id]: false}));
+            return newState;
+        });
     }
+  };
     
     const totalPrice = () => {
         return prices.reduce((acc, total) => {
             return acc + total}, 0);           
     };
-
-   const quantity = (price) => {
-        const amount = prices.filter((element) => element === price).length;
-        return amount;
-   }
       
     return (
         <div className='pageLayout'>
@@ -41,9 +58,11 @@ export default function Animals({animals, moreAnimalInfo, setMoreAnimalInfo, pri
                         <p className='healthScore'><span>Health Score: </span>{animal.health_score}</p>  
                         <p className='price'>£{animal.price}</p> 
                         <button className={`more-info ${moreAnimalInfo === animal.id ? 'selected' : ''}`} onClick={() => info(animal.id)}>More Info</button>                   
-                        <button className='cart' onClick={() => addToCart(animal.price)}>Add to Cart</button>
-                        <button onClick={() => removeFromCart(animal.price)}>Remove from Cart</button> 
-                        <div className='qty'>Qty: {quantity(animal.price)}</div>  
+                        <button className={`cart ${qtyFreeze[animal.id] ? 'freeze' : ''}`} onClick={() => addToCart(animal.price, animal.id)} disabled={qtyFreeze[animal.id]}>Add to Cart</button>
+                        {
+                            cartState[animal.id] ? (<button onClick={() => removeFromCart(animal.price, animal.id)}>Remove from Cart</button>) : ''
+                        }
+                        <div className='qty'>Qty: {cartState[animal.id] || 0}</div>  
                     </div>            
                 )) 
                 

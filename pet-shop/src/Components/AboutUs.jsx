@@ -1,14 +1,8 @@
 import React from "react";
-import NavbarOtherPages from "./Navbar/NavbarOtherPages";
 
-export default function AboutUs({setAnimals, setPage}){
+export default function AboutUs(){
     return (
         <div>
-            <NavbarOtherPages
-                setPage = {setPage}
-                setAnimals = {setAnimals}
-            />
-            
             <div className="section">
                 <div>About Us</div>
                 <img src="https://cdn.pixabay.com/photo/2017/01/31/08/46/anthropomorphized-animals-2023331_1280.png" alt="Monkey" />

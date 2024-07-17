@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useAppContext } from "../AppContext";
 
-export default function Navbar({setAnimals, originalAnimals, page, setPage}){
-
+export default function Navbar({setAnimals, originalAnimals}){
+    const {page, setPage} = useAppContext();
     const [showOptions, setShowOptions] = useState(false);
 
     const toggleOptions = () => {
@@ -16,7 +17,7 @@ export default function Navbar({setAnimals, originalAnimals, page, setPage}){
                 return animal.type === animalName;
        });
        setAnimals(filteredList);
-       setPage(0);
+       setPage('home');
     };
 
     const allAnimals = () => {
@@ -24,15 +25,15 @@ export default function Navbar({setAnimals, originalAnimals, page, setPage}){
     }
 
     const pageSelect = (page) => {
-        if (page === 0){
-            setPage(0);
+        if (page === 'home'){
+            setPage('home');
             setAnimals(originalAnimals);
-        } else if (page === 1) {
-            setPage(1);
-        } else if (page === 2) {
-            setPage(2);            
+        } else if (page === 'aboutUs') {
+            setPage('aboutUs');
+        } else if (page === 'contactUs') {
+            setPage('contactUs');            
         } else {
-            setPage(3);
+            setPage('checkout');
         };
     }
 
@@ -45,8 +46,8 @@ export default function Navbar({setAnimals, originalAnimals, page, setPage}){
             </div>
             <div className="navbar"> 
                 <div className="navbarOptions">
-                    <div className="mainBtn" onClick={() => pageSelect(0)}>Home</div>
-                    {page === 0 ?
+                    <div className="mainBtn" onClick={() => pageSelect('home')}>Home</div>
+                    {page === 'home' ?
                         <div className='animals-button' onClick={toggleOptions}>
                             Our Animals
                             {showOptions && (
@@ -63,9 +64,9 @@ export default function Navbar({setAnimals, originalAnimals, page, setPage}){
                         :
                         ''
                     }
-                    <div className="mainBtn" onClick={() => pageSelect(1)}>About Us</div>
-                    <div className="mainBtn" onClick={() => pageSelect(2)}>Contact Us</div>
-                    <img onClick={() => pageSelect(3)}
+                    <div className="mainBtn" onClick={() => pageSelect('aboutUs')}>About Us</div>
+                    <div className="mainBtn" onClick={() => pageSelect('contactUs')}>Contact Us</div>
+                    <img onClick={() => pageSelect('checkout')}
                          src="https://cdn.pixabay.com/photo/2014/03/25/16/58/shopping-cart-297750_1280.png"
                          alt="shopping cart"/>
                 </div>

@@ -6,56 +6,56 @@ import AboutUs from "./Components/AboutUs";
 import ContactUs from "./Components/ContactUs";
 import Checkout from "./Components/Checkout";
 import FetchAnimals from "./Components/Hooks/FetchAnimals";
+import AppProvider, {useAppContext} from "./Components/AppContext";
 
 export default function App(){
-  const [page, setPage] = useState('home');
-  const [prices, setPrices] = useState([]);
-  const [cartState, setCartState]=useState({});
   const {animals, setAnimals, originalAnimals} = FetchAnimals();
 
   return (
-    <div>
-        <Navbar
-            animals = {animals}
-            setAnimals = {setAnimals}
-            originalAnimals = {originalAnimals}
-            page ={page}
-            setPage = {setPage}
+    <AppProvider>
+      <AppContent
+        animals = {animals}
+        setAnimals = {setAnimals}
+        originalAnimals = {originalAnimals}
+      />
+    </AppProvider>
+  )
+}
+
+function AppContent({animals, setAnimals, originalAnimals}){
+  const {page} = useAppContext();
+
+return(
+  <div>
+      <Navbar
+          animals = {animals}
+          setAnimals = {setAnimals}
+          originalAnimals = {originalAnimals}            
+      />
+      {page === 'home' ? (
+      <div>
+        <Animals
+          animals = {animals}          
         />
-        {page === 'home' ? (
-        <div>
-          <Animals
-            animals = {animals}
-            setPage={setPage}
-            prices={prices}
-            setPrices={setPrices}
-            cartState={cartState}
-            setCartState={setCartState}
-          />
-          <TotalPrice />  
-        </div>) : 
+        <TotalPrice />  
+      </div>) : 
       page === 'aboutUs' ? (
-        <div> 
-          <AboutUs
-            setPage={setPage}
-          /> 
-        </div>) : 
+      <div> 
+        <AboutUs          
+        /> 
+      </div>) : 
       page === 'contactUs' ? (
-        <div>
-           <ContactUs
-            setPage={setPage}
-          /> 
-        </div>) : 
+      <div>
+         <ContactUs          
+        /> 
+      </div>) : 
       page === 'checkout' ? (
-        <div>
-          <Checkout
-            setPage={setPage}
-            prices={prices}
-            cartState={cartState}     
-            animals={animals}       
-          />
-        </div>
-      ) : ''}      
-    </div>
+      <div>
+        <Checkout    
+          animals={animals}       
+        />
+      </div>
+    ) : ''}      
+  </div>
   )
 }

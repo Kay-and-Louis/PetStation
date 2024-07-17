@@ -1,7 +1,9 @@
 import React from "react";
 import AnimalSummary from "./AnimalSummary.jsx";
+import { useAppContext } from "./AppContext.jsx";
 
-export default function Checkout({animals, cartState, prices}){
+export default function Checkout({animals}){
+    const {cartState, prices} = useAppContext();
 
     const totalPrice = () => {
         return prices.reduce((acc, total) => {

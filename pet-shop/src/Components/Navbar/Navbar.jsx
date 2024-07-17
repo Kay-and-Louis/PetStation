@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useAppContext } from "../AppContext";
 
-export default function Navbar({setAnimals, originalAnimals, page, setPage}){
-
+export default function Navbar({setAnimals, originalAnimals}){
+    const {page, setPage} = useAppContext();
     const [showOptions, setShowOptions] = useState(false);
 
     const toggleOptions = () => {

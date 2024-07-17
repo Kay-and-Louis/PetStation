@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import AnimalItem from './Homepage/AnimalItem';
 import Moreinfo from './Homepage/MoreInfo';
+import { useAppContext } from './AppContext';
 
-export default function Animals({animals, prices, setPrices, cartState, setCartState}){
-
+export default function Animals({animals}){
+const {prices, setPrices, cartState, setCartState} = useAppContext();
 const [moreAnimalInfo, setMoreAnimalInfo] = useState(false);
     
     function info(id){
